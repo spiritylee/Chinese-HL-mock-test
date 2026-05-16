@@ -283,12 +283,35 @@
         <div class="score-pill">Current score: <span id="liveScore">0</span> / 80</div>
         <div class="buttons">
           <button class="primary" onclick="markAll()">Submit & Mark</button>
+          <button class="secondary" onclick="copyReport()">Copy result report</button>
           <button class="secondary" onclick="showAnswers()">Show answers</button>
           <button class="danger" onclick="resetAll()">Reset</button>
         </div>
       </div>
     </div>
+<section class="card">
+  <div class="question-title">
+    <h2>Student Information</h2>
+    <span class="marks">Required before submission</span>
+  </div>
 
+  <div class="grid3">
+    <div>
+      <label class="prompt">Name / 姓名</label>
+      <input type="text" id="studentName" placeholder="e.g. Zhang San">
+    </div>
+    <div>
+      <label class="prompt">Class / 班级</label>
+      <input type="text" id="studentClass" placeholder="e.g. HL Chinese Group A">
+    </div>
+    <div>
+      <label class="prompt">Student ID or Email / 学号或邮箱</label>
+      <input type="text" id="studentId" placeholder="optional">
+    </div>
+  </div>
+
+  <p class="small-note">Please enter your information before submitting your reading result.</p>
+</section>
     <div class="wrap">
       <div id="resultBox" class="result-box">
         <h2>Reading Result</h2>
@@ -634,7 +657,89 @@
       markAll();
       document.querySelectorAll(".feedback").forEach(fb => fb.classList.add("show"));
     }
+function collectAnswers() {
+  const data = [];
 
+  document.querySelectorAll(".item").forEach((item, index) => {
+    const questionText = item.querySelector(".prompt")?.innerText || `Item ${index + 1}`;
+    const score = item.dataset.score || "0";
+    const max = item.dataset.points || "0";
+
+    let answer = "";
+
+    if (item.dataset.type === "tf") {
+      const selected = [];
+      item.querySelectorAll(".tf-row").forEach((row) => {
+        const checked = row.querySelector("input[type='radio']:checked");
+        if (checked) selected.push(checked.value);
+      });
+      answer = selected.join(", ");
+    } else {
+      const values = [];
+      item.querySelectorAll("input[type='text'], textarea").forEach((input) => {
+        values.push(input.value.trim());
+      });
+      answer = values.filter(Boolean).join(" | ");
+    }
+
+    data.push({
+      question: questionText,
+      answer: answer,
+      score: score,
+      max: max
+    });
+  });
+
+  return data;
+}
+
+function buildReport() {
+  markAll();
+
+  const name = document.getElementById("studentName")?.value.trim() || "";
+  const className = document.getElementById("studentClass")?.value.trim() || "";
+  const studentId = document.getElementById("studentId")?.value.trim() || "";
+  const totalScore = document.getElementById("liveScore").textContent;
+  const answers = collectAnswers();
+
+  let report = "";
+  report += "Mandarin Chinese Higher Level Reading Mock Test\\n";
+  report += "============================================\\n";
+  report += `Name: ${name}\\n`;
+  report += `Class: ${className}\\n`;
+  report += `Student ID / Email: ${studentId}\\n`;
+  report += `Reading Score: ${totalScore} / 80\\n`;
+  report += `Submitted At: ${new Date().toLocaleString()}\\n\\n`;
+  report += "Answers and Scores:\\n";
+
+  answers.forEach((item, index) => {
+    report += `\\n${index + 1}. ${item.question}\\n`;
+    report += `Answer: ${item.answer}\\n`;
+    report += `Score: ${item.score} / ${item.max}\\n`;
+  });
+
+  return report;
+}
+
+async function copyReport() {
+  const name = document.getElementById("studentName")?.value.trim();
+  const className = document.getElementById("studentClass")?.value.trim();
+
+  if (!name || !className) {
+    alert("Please enter your name and class before copying the report.");
+    return;
+  }
+
+  const report = buildReport();
+
+  try {
+    await navigator.clipboard.writeText(report);
+    alert("Result report copied. Please paste and send it to your teacher.");
+  } catch (err) {
+    alert("Copy failed. Please select and copy the report manually from the result box.");
+    console.error(err);
+  }
+}
     function resetAll() {
       document.querySelectorAll("input[type='text'], textarea").forEach(el => {
         el.value = "";
