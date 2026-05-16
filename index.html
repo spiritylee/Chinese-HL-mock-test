@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leaving Cert Mandarin Chinese Higher Level - Reading Mock Test</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #2563eb;
+      --good: #15803d;
+      --bad: #b91c1c;
+      --soft-good: #dcfce7;
+      --soft-bad: #fee2e2;
+      --soft-blue: #dbeafe;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1d4ed8, #7c3aed);
+      color: #fff;
+      padding: 32px 20px;
+    }
+
+    .wrap {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3 { line-height: 1.25; }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+    }
+
+    .subtitle {
+      margin: 0;
+      opacity: 0.9;
+      font-size: 1rem;
+    }
+
+    main { padding: 24px 20px 70px; }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(246, 247, 251, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 20px;
+      margin: -24px -20px 24px;
+    }
+
+    .toolbar-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .score-pill {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: transform 0.08s ease, opacity 0.2s ease;
+    }
+
+    button:hover { opacity: 0.92; }
+    button:active { transform: scale(0.98); }
+
+    .primary { background: var(--accent); color: white; }
+    .secondary { background: #e5e7eb; color: #111827; }
+    .danger { background: #fee2e2; color: #991b1b; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      margin-bottom: 22px;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+    }
+
+    .question-title {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+
+    .question-title h2 {
+      margin: 0;
+      font-size: 1.35rem;
+    }
+
+    .marks {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .passage {
+      background: #fafafa;
+      border-left: 5px solid var(--accent);
+      border-radius: 12px;
+      padding: 16px;
+      margin: 14px 0 18px;
+      font-size: 1.05rem;
+    }
+
+    .vocab {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 10px;
+    }
+
+    table.info {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      background: #fff;
+    }
+
+    table.info th, table.info td {
+      border: 1px solid var(--line);
+      padding: 9px;
+      text-align: left;
+    }
+
+    table.info th { background: #f3f4f6; }
+
+    .item {
+      border-top: 1px dashed var(--line);
+      padding: 16px 0;
+    }
+
+    .item:first-of-type { border-top: 0; }
+
+    .item label.prompt {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hint {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin: 4px 0 8px;
+    }
+
+    input[type="text"], textarea, select {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 1rem;
+      background: #fff;
+    }
+
+    textarea { min-height: 70px; resize: vertical; }
+
+    .grid2, .grid3 {
+      display: grid;
+      gap: 10px;
+    }
+
+    .grid2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .tf-row {
+      display: grid;
+      grid-template-columns: 1fr 95px 95px;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .tf-head {
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .radio-cell {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      justify-content: center;
+    }
+
+    .feedback {
+      margin-top: 8px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 0.94rem;
+      display: none;
+    }
+
+    .feedback.show { display: block; }
+    .feedback.good { background: var(--soft-good); color: var(--good); }
+    .feedback.bad { background: var(--soft-bad); color: var(--bad); }
+    .feedback.partial { background: var(--soft-blue); color: #1d4ed8; }
+
+    .correct-field { border-color: #22c55e !important; background: #f0fdf4 !important; }
+    .wrong-field { border-color: #ef4444 !important; background: #fff7f7 !important; }
+
+    .result-box {
+      display: none;
+      background: #111827;
+      color: white;
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 22px;
+    }
+
+    .result-box.show { display: block; }
+
+    .result-box h2 { margin: 0 0 8px; }
+    .result-box p { margin: 4px 0; }
+
+    .small-note {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 720px) {
+      .grid2, .grid3 { grid-template-columns: 1fr; }
+      .tf-row { grid-template-columns: 1fr 78px 78px; }
+      .card { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Mandarin Chinese Higher Level — Reading Mock Test</h1>
+      <p class="subtitle">Auto-marked Reading Section / 80 marks. Writing is not included.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="toolbar">
+      <div class="toolbar-inner">
+        <div class="score-pill">Current score: <span id="liveScore">0</span> / 80</div>
+        <div class="buttons">
+          <button class="primary" onclick="markAll()">Submit & Mark</button>
+          <button class="secondary" onclick="showAnswers()">Show answers</button>
+          <button class="danger" onclick="resetAll()">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div id="resultBox" class="result-box">
+        <h2>Reading Result</h2>
+        <p id="finalScore"></p>
+        <p id="scoreComment"></p>
+      </div>
+
+      <section class="card" id="q1">
+        <div class="question-title">
+          <h2>Question 1</h2>
+          <span class="marks">17 marks</span>
+        </div>
+        <p><strong>Read the following train ticket information. Answer the questions in English unless otherwise stated.</strong></p>
+        <div class="passage">
+          <p>小林想从都柏林去科克看朋友。他在网上查到下面的火车信息。</p>
+          <table class="info">
+            <thead>
+              <tr><th>车次</th><th>出发时间</th><th>到达时间</th><th>票价</th><th>备注</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>A102</td><td>08:20</td><td>11:05</td><td>28欧元</td><td>直达，有咖啡</td></tr>
+              <tr><td>B215</td><td>10:00</td><td>13:20</td><td>20欧元</td><td>需要换车一次</td></tr>
+              <tr><td>C330</td><td>14:15</td><td>17:00</td><td>24欧元</td><td>直达，没有座位预订</td></tr>
+              <tr><td>D418</td><td>18:40</td><td>21:30</td><td>18欧元</td><td>学生票，直达</td></tr>
+            </tbody>
+          </table>
+          <p>小林下午两点以前要到科克，因为他和朋友约好一起吃午饭。他不想换车，也想在火车上买咖啡。最后，他选择了A102。</p>
+          <p class="vocab">Vocabulary: 查 = to check; 车次 = train number; 到达 = arrive; 票价 = ticket price; 备注 = note; 直达 = direct; 换车 = change trains; 座位预订 = seat reservation</p>
+        </div>
+
+        <div class="item" data-points="2" data-type="text" data-answers="cork|科克">
+          <label class="prompt">(a) Where does 小林 want to go? <span class="marks">2 marks</span></label>
+          <input type="text" />
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="2" data-type="text" data-answers="lunch|eat lunch|have lunch|午饭">
+          <label class="prompt">(b) Why does 小林 need to arrive before 2 p.m.? <span class="marks">2 marks</span></label>
+          <input type="text" />
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="2" data-type="text" data-answers="A102|Ａ102|a102">
+          <label class="prompt">(c) Which train did 小林 choose? Answer in Chinese. <span class="marks">2 marks</span></label>
+          <input type="text" />
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="4" data-type="multi" data-answers="direct|no change|does not need to change|coffee|arrives before 2|arrives before two|到两点以前|直达|有咖啡">
+          <label class="prompt">(d) Name two reasons why he chose this train. <span class="marks">4 marks</span></label>
+          <div class="grid2">
+            <input type="text" placeholder="1" />
+            <input type="text" placeholder="2" />
+          </div>
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="2" data-type="text" data-answers="D418|Ｄ418|d418">
+          <label class="prompt">(e) Which train is the cheapest? <span class="marks">2 marks</span></label>
+          <input type="text" />
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="5" data-type="tf" data-answers="F,T,T">
+          <label class="prompt">(f) Indicate whether the following sentences are True or False. <span class="marks">5 marks</span></label>
+          <div class="tf-row tf-head"><div></div><div>True</div><div>False</div></div>
+          <div class="tf-row"><div>(i) B215 is a direct train.</div><label class="radio-cell"><input type="radio" name="q1f1" value="T"> T</label><label class="radio-cell"><input type="radio" name="q1f1" value="F"> F</label></div>
+          <div class="tf-row"><div>(ii) C330 arrives at 5 p.m.</div><label class="radio-cell"><input type="radio" name="q1f2" value="T"> T</label><label class="radio-cell"><input type="radio" name="q1f2" value="F"> F</label></div>
+          <div class="tf-row"><div>(iii) D418 has a student ticket.</div><label class="radio-cell"><input type="radio" name="q1f3" value="T"> T</label><label class="radio-cell"><input type="radio" name="q1f3" value="F"> F</label></div>
+          <div class="feedback"></div>
+        </div>
+      </section>
+
+      <section class="card" id="q2">
+        <div class="question-title">
+          <h2>Question 2</h2>
+          <span class="marks">16 marks</span>
+        </div>
+        <p><strong>Read the following short dialogue. Answer the questions in English.</strong></p>
+        <div class="passage">
+          <p>服务员：您好，请问几位？<br>
+          客人：三位。我们想坐在窗户旁边。<br>
+          服务员：可以。请看菜单。今天有牛肉面、鸡肉饭、鱼和蔬菜。<br>
+          客人：我不吃牛肉。我想要鸡肉饭。我的朋友想吃鱼。<br>
+          服务员：好的。要喝什么？<br>
+          客人：一杯热茶，两杯冰水。<br>
+          服务员：还要甜点吗？今天的甜点是苹果蛋糕。<br>
+          客人：不用了。我们吃完饭以后要去看电影。<br>
+          服务员：好的，一共三十六欧元。</p>
+          <p class="vocab">Vocabulary: 服务员 = waiter/waitress; 菜单 = menu; 甜点 = dessert; 一共 = altogether</p>
+        </div>
+        <div class="item" data-points="2" data-type="text" data-answers="three|3|三">
+          <label class="prompt">(a) How many people are eating? <span class="marks">2 marks</span></label>
+          <input type="text" />
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="2" data-type="text" data-answers="window|by the window|beside the window|next to the window|窗户旁边">
+          <label class="prompt">(b) Where do they want to sit? <span class="marks">2 marks</span></label>
+          <input type="text" />
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="4" data-type="multi" data-answers="beef noodles|chicken rice|fish|vegetables|牛肉面|鸡肉饭|鱼|蔬菜">
+          <label class="prompt">(c) Name two foods available today. <span class="marks">4 marks</span></label>
+          <div class="grid2"><input type="text" placeholder="1"><input type="text" placeholder="2"></div>
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="2" data-type="text" data-answers="does not eat beef|doesn't eat beef|not eat beef|不吃牛肉">
+          <label class="prompt">(d) Why does the customer not order beef noodles? <span class="marks">2 marks</span></label>
+          <input type="text" />
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="4" data-type="multi" data-answers="hot tea|iced water|ice water|cold water|热茶|冰水">
+          <label class="prompt">(e) What drinks do they order? <span class="marks">4 marks</span></label>
+          <div class="grid2"><input type="text" placeholder="1"><input type="text" placeholder="2"></div>
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="2" data-type="text" data-answers="watch a film|watch a movie|go to the cinema|看电影">
+          <label class="prompt">(f) What will they do after the meal? <span class="marks">2 marks</span></label>
+          <input type="text" />
+          <div class="feedback"></div>
+        </div>
+      </section>
+
+      <section class="card" id="q3">
+        <div class="question-title">
+          <h2>Question 3</h2>
+          <span class="marks">19 marks</span>
+        </div>
+        <p><strong>Read the following text about Chinese zodiac animals. Answer the questions in English unless otherwise stated.</strong></p>
+        <div class="passage">
+          <p>十二生肖是中国文化的一部分。很多中国人知道自己是哪一个生肖。生肖一共有十二个动物，比如鼠、牛、虎、兔、龙、蛇、马、羊、猴、鸡、狗和猪。</p>
+          <p>今年是马年。马在中国文化里常常代表速度和力量。有些人觉得属马的人喜欢自由，做事很快，也很有朋友。但是，这只是文化故事，不一定每个人都一样。</p>
+          <p>小安出生在兔年。她很喜欢兔子，因为兔子看起来很安静，也很可爱。她的弟弟出生在龙年。家里人常说，龙在中国文化里很特别，因为龙不是普通动物，而是一个重要的文化符号。</p>
+          <p class="vocab">Vocabulary: 十二生肖 = Chinese zodiac; 代表 = represent; 速度 = speed; 力量 = strength; 属马 = born in the Year of the Horse; 普通 = ordinary; 符号 = symbol</p>
+        </div>
+        <div class="item" data-points="2" data-type="text" data-answers="twelve|12|十二">
+          <label class="prompt">(a) How many animals are there in the Chinese zodiac? <span class="marks">2 marks</span></label>
+          <input type="text" />
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="3" data-type="multi" data-answers="rat|ox|tiger|rabbit|dragon|snake|horse|goat|sheep|monkey|rooster|chicken|dog|pig|鼠|牛|虎|兔|龙|蛇|马|羊|猴|鸡|狗|猪">
+          <label class="prompt">(b) Name any three zodiac animals mentioned in the text. <span class="marks">3 marks</span></label>
+          <div class="grid3"><input type="text" placeholder="1"><input type="text" placeholder="2"><input type="text" placeholder="3"></div>
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="4" data-type="multi" data-answers="speed|strength|power|速度|力量">
+          <label class="prompt">(c) What does the horse often represent in Chinese culture? <span class="marks">4 marks</span></label>
+          <div class="grid2"><input type="text" placeholder="1"><input type="text" placeholder="2"></div>
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="4" data-type="multi" data-answers="free|freedom|like freedom|fast|do things quickly|many friends|has friends|自由|做事很快|有朋友">
+          <label class="prompt">(d) What are people born in the Year of the Horse sometimes believed to be like? Name two features. <span class="marks">4 marks</span></label>
+          <div class="grid2"><input type="text" placeholder="1"><input type="text" placeholder="2"></div>
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="2" data-type="text" data-answers="rabbit|兔|兔年">
+          <label class="prompt">(e) In which zodiac year was 小安 born? Answer in Chinese. <span class="marks">2 marks</span></label>
+          <input type="text" />
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="4" data-type="text" data-answers="not ordinary|important cultural symbol|cultural symbol|不是普通动物|文化符号|重要的文化符号">
+          <label class="prompt">(f) Why is the dragon special in Chinese culture according to the text? <span class="marks">4 marks</span></label>
+          <textarea></textarea>
+          <div class="feedback"></div>
+        </div>
+      </section>
+
+      <section class="card" id="q4">
+        <div class="question-title">
+          <h2>Question 4</h2>
+          <span class="marks">28 marks</span>
+        </div>
+        <p><strong>Read the following passage about mobile phone use. Answer the questions in English unless otherwise stated.</strong></p>
+        <div class="passage">
+          <p>现在，很多中学生每天都用手机。手机很方便。学生可以用手机查词典、听中文、看学习视频，也可以和朋友、老师、家人联系。对学习外语的学生来说，手机有很多帮助。</p>
+          <p>但是，手机也会带来问题。有的学生一边写作业，一边看短视频。这样学习时间变长了，可是学习效果不好。有的学生晚上很晚还在看手机，所以第二天上课很累。还有的学生看到网上的漂亮照片，就觉得自己的生活不够好，因此不开心。</p>
+          <p>老师建议学生合理使用手机。第一，学习的时候，把手机放远一点。第二，每天给自己一个不用手机的时间，比如晚饭后半小时。第三，睡觉前不要看手机，可以听音乐、看书或者和家人聊天。</p>
+          <p>手机不是好东西，也不是坏东西。重要的是我们怎么使用它。</p>
+          <p class="vocab">Vocabulary: 方便 = convenient; 查词典 = look up a dictionary; 联系 = contact; 外语 = foreign language; 短视频 = short videos; 效果 = effect/result; 合理 = reasonable; 建议 = suggest</p>
+        </div>
+        <div class="item" data-points="4" data-type="multi" data-answers="look up dictionary|check dictionary|dictionary|listen to chinese|watch study videos|learning videos|contact friends|contact teachers|contact family|查词典|听中文|看学习视频|联系朋友|联系老师|联系家人">
+          <label class="prompt">(a) How can mobile phones help students learn foreign languages? Name two ways. <span class="marks">4 marks</span></label>
+          <div class="grid2"><input type="text" placeholder="1"><input type="text" placeholder="2"></div>
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="4" data-type="multi" data-answers="watch short videos while doing homework|learning takes longer|bad learning effect|tired in class|unhappy|feel life is not good enough|写作业看短视频|学习时间变长|学习效果不好|上课很累|不开心">
+          <label class="prompt">(b) The text mentions three problems caused by mobile phone use. Name two of them. <span class="marks">4 marks</span></label>
+          <div class="grid2"><input type="text" placeholder="1"><input type="text" placeholder="2"></div>
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="4" data-type="text" data-answers="learning takes longer|study time becomes longer|learning effect is bad|poor learning result|学习时间变长|学习效果不好">
+          <label class="prompt">(c) Why can watching short videos while doing homework be a problem? <span class="marks">4 marks</span></label>
+          <textarea></textarea>
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="2" data-type="text" data-answers="put phone far away|put the phone away|放远一点|手机放远">
+          <label class="prompt">(d) What does the teacher suggest students do when studying? <span class="marks">2 marks</span></label>
+          <input type="text" />
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="4" data-type="multi" data-answers="listen to music|read books|read|chat with family|talk with family|听音乐|看书|和家人聊天">
+          <label class="prompt">(e) Give two examples of things students can do before sleeping instead of using their phones. <span class="marks">4 marks</span></label>
+          <div class="grid2"><input type="text" placeholder="1"><input type="text" placeholder="2"></div>
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="4" data-type="text" data-answers="how we use it matters|important thing is how we use it|depends on how we use it|use phone properly|合理使用|怎么使用它">
+          <label class="prompt">(f) What is the main idea of the final sentence: “重要的是我们怎么使用它”? <span class="marks">4 marks</span></label>
+          <textarea></textarea>
+          <div class="feedback"></div>
+        </div>
+        <div class="item" data-points="6" data-type="radicals">
+          <label class="prompt">(g) Fill in the blanks. You will find the characters for the first column in the text. <span class="marks">6 marks</span></label>
+          <table class="info">
+            <thead><tr><th>Character</th><th>Meaning</th><th>Radical</th><th>Meaning of radical</th></tr></thead>
+            <tbody>
+              <tr><td>词</td><td><input type="text" data-answer="word|term"></td><td>讠</td><td><input type="text" data-answer="speech|language|talk"></td></tr>
+              <tr><td>晚</td><td><input type="text" data-answer="evening|late"></td><td>日</td><td><input type="text" data-answer="sun|day"></td></tr>
+              <tr><td>校</td><td><input type="text" data-answer="school"></td><td>木</td><td><input type="text" data-answer="wood|tree"></td></tr>
+            </tbody>
+          </table>
+          <div class="feedback"></div>
+        </div>
+      </section>
+
+      <p class="small-note">Note: automatic marking accepts common equivalent English/Chinese answers, but teacher judgement is still useful for borderline wording.</p>
+    </div>
+  </main>
+
+  <script>
+    function normalize(value) {
+      return (value || "")
+        .toString()
+        .trim()
+        .toLowerCase()
+        .replace(/[。．.!?,，、;；:：]/g, " ")
+        .replace(/\s+/g, " ");
+    }
+
+    function containsAnswer(value, answer) {
+      const v = normalize(value);
+      const a = normalize(answer);
+      if (!v || !a) return false;
+      return v.includes(a) || a.includes(v);
+    }
+
+    function uniqueHits(inputs, answers) {
+      const used = new Set();
+      let hits = 0;
+      inputs.forEach(input => {
+        const value = normalize(input.value);
+        if (!value) return;
+        for (let i = 0; i < answers.length; i++) {
+          if (used.has(i)) continue;
+          if (containsAnswer(value, answers[i])) {
+            used.add(i);
+            hits++;
+            input.classList.add("correct-field");
+            input.classList.remove("wrong-field");
+            return;
+          }
+        }
+        input.classList.add("wrong-field");
+        input.classList.remove("correct-field");
+      });
+      return hits;
+    }
+
+    function setFeedback(item, score, max, answersText) {
+      const fb = item.querySelector(".feedback");
+      fb.className = "feedback show " + (score === max ? "good" : score > 0 ? "partial" : "bad");
+      fb.innerHTML = score === max
+        ? `Correct. ${score}/${max}`
+        : `Score: ${score}/${max}. Acceptable answer(s): ${answersText}`;
+    }
+
+    function markItem(item) {
+      const type = item.dataset.type;
+      const points = Number(item.dataset.points);
+      let score = 0;
+
+      item.querySelectorAll("input, textarea").forEach(el => {
+        if (el.type !== "radio") el.classList.remove("correct-field", "wrong-field");
+      });
+
+      if (type === "text") {
+        const input = item.querySelector("input, textarea");
+        const answers = item.dataset.answers.split("|");
+        const ok = answers.some(a => containsAnswer(input.value, a));
+        score = ok ? points : 0;
+        input.classList.add(ok ? "correct-field" : "wrong-field");
+        setFeedback(item, score, points, answers.join(" / "));
+      }
+
+      if (type === "multi") {
+        const inputs = Array.from(item.querySelectorAll("input"));
+        const answers = item.dataset.answers.split("|");
+        const maxHits = inputs.length;
+        const hits = uniqueHits(inputs, answers);
+        score = Math.min(points, hits * (points / maxHits));
+        setFeedback(item, score, points, answers.join(" / "));
+      }
+
+      if (type === "tf") {
+        const answers = item.dataset.answers.split(",");
+        let hits = 0;
+        answers.forEach((ans, idx) => {
+          const checked = item.querySelector(`input[name$="${idx + 1}"]:checked`);
+          if (checked && checked.value === ans) hits++;
+        });
+        score = Math.round((hits / answers.length) * points);
+        setFeedback(item, score, points, answers.map(a => a === "T" ? "True" : "False").join(" / "));
+      }
+
+      if (type === "radicals") {
+        const inputs = Array.from(item.querySelectorAll("input"));
+        let hits = 0;
+        inputs.forEach(input => {
+          const answers = input.dataset.answer.split("|");
+          const ok = answers.some(a => containsAnswer(input.value, a));
+          if (ok) hits++;
+          input.classList.add(ok ? "correct-field" : "wrong-field");
+        });
+        score = hits;
+        setFeedback(item, score, points, "词 = word/term, 讠 = speech/language; 晚 = evening/late, 日 = sun/day; 校 = school, 木 = wood/tree");
+      }
+
+      item.dataset.score = String(score);
+      return score;
+    }
+
+    function markAll() {
+      const items = Array.from(document.querySelectorAll(".item"));
+      const total = items.reduce((sum, item) => sum + markItem(item), 0);
+      const rounded = Math.round(total * 10) / 10;
+      document.getElementById("liveScore").textContent = rounded;
+      document.getElementById("finalScore").textContent = `Your Reading score is ${rounded} / 80.`;
+      let comment = "";
+      if (rounded >= 68) comment = "Excellent reading performance.";
+      else if (rounded >= 56) comment = "Very good. Review the partly correct answers.";
+      else if (rounded >= 40) comment = "Solid attempt. Focus on detail questions and key vocabulary.";
+      else comment = "Keep practising. Re-read the texts slowly and identify key words before answering.";
+      document.getElementById("scoreComment").textContent = comment;
+      document.getElementById("resultBox").classList.add("show");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showAnswers() {
+      markAll();
+      document.querySelectorAll(".feedback").forEach(fb => fb.classList.add("show"));
+    }
+
+    function resetAll() {
+      document.querySelectorAll("input[type='text'], textarea").forEach(el => {
+        el.value = "";
+        el.classList.remove("correct-field", "wrong-field");
+      });
+      document.querySelectorAll("input[type='radio']").forEach(el => el.checked = false);
+      document.querySelectorAll(".feedback").forEach(fb => {
+        fb.className = "feedback";
+        fb.textContent = "";
+      });
+      document.querySelectorAll(".item").forEach(item => item.dataset.score = "0");
+      document.getElementById("liveScore").textContent = "0";
+      document.getElementById("resultBox").classList.remove("show");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
