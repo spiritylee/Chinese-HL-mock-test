@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leaving Cert Mandarin Chinese Higher Level - Reading Mock Test</title>
+  <title>Mandarin Chinese Higher Level - Reading Mock Test</title>
   <style>
     :root {
       --bg: #f6f7fb;
@@ -35,24 +35,11 @@
       padding: 32px 20px;
     }
 
-    .wrap {
-      max-width: 1050px;
-      margin: 0 auto;
-    }
+    .wrap { max-width: 1050px; margin: 0 auto; }
 
     h1, h2, h3 { line-height: 1.25; }
-
-    h1 {
-      margin: 0 0 8px;
-      font-size: clamp(1.7rem, 3vw, 2.4rem);
-    }
-
-    .subtitle {
-      margin: 0;
-      opacity: 0.9;
-      font-size: 1rem;
-    }
-
+    h1 { margin: 0 0 8px; font-size: clamp(1.7rem, 3vw, 2.4rem); }
+    .subtitle { margin: 0; opacity: 0.9; font-size: 1rem; }
     main { padding: 24px 20px 70px; }
 
     .toolbar {
@@ -85,11 +72,7 @@
       box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
     }
 
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    .buttons { display: flex; flex-wrap: wrap; gap: 8px; }
 
     button {
       border: 0;
@@ -99,10 +82,8 @@
       font-weight: 700;
       transition: transform 0.08s ease, opacity 0.2s ease;
     }
-
     button:hover { opacity: 0.92; }
     button:active { transform: scale(0.98); }
-
     .primary { background: var(--accent); color: white; }
     .secondary { background: #e5e7eb; color: #111827; }
     .danger { background: #fee2e2; color: #991b1b; }
@@ -126,16 +107,8 @@
       padding-bottom: 12px;
       margin-bottom: 18px;
     }
-
-    .question-title h2 {
-      margin: 0;
-      font-size: 1.35rem;
-    }
-
-    .marks {
-      color: var(--muted);
-      font-weight: 700;
-    }
+    .question-title h2 { margin: 0; font-size: 1.35rem; }
+    .marks { color: var(--muted); font-weight: 700; }
 
     .passage {
       background: #fafafa;
@@ -145,12 +118,7 @@
       margin: 14px 0 18px;
       font-size: 1.05rem;
     }
-
-    .vocab {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-top: 10px;
-    }
+    .vocab { color: var(--muted); font-size: 0.95rem; margin-top: 10px; }
 
     table.info {
       width: 100%;
@@ -158,33 +126,17 @@
       margin: 12px 0;
       background: #fff;
     }
-
     table.info th, table.info td {
       border: 1px solid var(--line);
       padding: 9px;
       text-align: left;
     }
-
     table.info th { background: #f3f4f6; }
 
-    .item {
-      border-top: 1px dashed var(--line);
-      padding: 16px 0;
-    }
-
+    .item { border-top: 1px dashed var(--line); padding: 16px 0; }
     .item:first-of-type { border-top: 0; }
-
-    .item label.prompt {
-      display: block;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .hint {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin: 4px 0 8px;
-    }
+    .item label.prompt { display: block; font-weight: 700; margin-bottom: 8px; }
+    .hint { font-size: 0.9rem; color: var(--muted); margin: 4px 0 8px; }
 
     input[type="text"], textarea, select {
       width: 100%;
@@ -194,14 +146,9 @@
       font-size: 1rem;
       background: #fff;
     }
-
     textarea { min-height: 70px; resize: vertical; }
 
-    .grid2, .grid3 {
-      display: grid;
-      gap: 10px;
-    }
-
+    .grid2, .grid3 { display: grid; gap: 10px; }
     .grid2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .grid3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
@@ -213,18 +160,8 @@
       padding: 8px 0;
       border-bottom: 1px solid #f1f5f9;
     }
-
-    .tf-head {
-      font-weight: 700;
-      color: var(--muted);
-    }
-
-    .radio-cell {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      justify-content: center;
-    }
+    .tf-head { font-weight: 700; color: var(--muted); }
+    .radio-cell { display: flex; align-items: center; gap: 6px; justify-content: center; }
 
     .feedback {
       margin-top: 8px;
@@ -233,12 +170,10 @@
       font-size: 0.94rem;
       display: none;
     }
-
     .feedback.show { display: block; }
     .feedback.good { background: var(--soft-good); color: var(--good); }
     .feedback.bad { background: var(--soft-bad); color: var(--bad); }
     .feedback.partial { background: var(--soft-blue); color: #1d4ed8; }
-
     .correct-field { border-color: #22c55e !important; background: #f0fdf4 !important; }
     .wrong-field { border-color: #ef4444 !important; background: #fff7f7 !important; }
 
@@ -250,17 +185,10 @@
       padding: 18px;
       margin-bottom: 22px;
     }
-
     .result-box.show { display: block; }
-
     .result-box h2 { margin: 0 0 8px; }
     .result-box p { margin: 4px 0; }
-
-    .small-note {
-      color: var(--muted);
-      font-size: 0.92rem;
-      margin-top: 14px;
-    }
+    .small-note { color: var(--muted); font-size: 0.92rem; margin-top: 14px; }
 
     @media (max-width: 720px) {
       .grid2, .grid3 { grid-template-columns: 1fr; }
@@ -273,7 +201,7 @@
   <header>
     <div class="wrap">
       <h1>Mandarin Chinese Higher Level — Reading Mock Test</h1>
-      <p class="subtitle">Auto-marked Reading Section / 80 marks. Writing is not included.</p>
+      <p class="subtitle">Auto-marked Reading Section / 80 marks. Results can be submitted to teacher.</p>
     </div>
   </header>
 
@@ -290,30 +218,30 @@
         </div>
       </div>
     </div>
-<section class="card">
-  <div class="question-title">
-    <h2>Student Information</h2>
-    <span class="marks">Required before submission</span>
-  </div>
 
-  <div class="grid3">
-    <div>
-      <label class="prompt">Name / 姓名</label>
-      <input type="text" id="studentName" placeholder="e.g. Zhang San">
-    </div>
-    <div>
-      <label class="prompt">Class / 班级</label>
-      <input type="text" id="studentClass" placeholder="e.g. HL Chinese Group A">
-    </div>
-    <div>
-      <label class="prompt">Student ID or Email / 学号或邮箱</label>
-      <input type="text" id="studentId" placeholder="optional">
-    </div>
-  </div>
-
-  <p class="small-note">Please enter your information before submitting your reading result.</p>
-</section>
     <div class="wrap">
+      <section class="card">
+        <div class="question-title">
+          <h2>Student Information</h2>
+          <span class="marks">Required before submission</span>
+        </div>
+        <div class="grid3">
+          <div>
+            <label class="prompt">Name / 姓名</label>
+            <input type="text" id="studentName" placeholder="e.g. Zhang San" />
+          </div>
+          <div>
+            <label class="prompt">Class / 班级</label>
+            <input type="text" id="studentClass" placeholder="e.g. HL Chinese Group A" />
+          </div>
+          <div>
+            <label class="prompt">Student ID or Email / 学号或邮箱</label>
+            <input type="text" id="studentId" placeholder="optional" />
+          </div>
+        </div>
+        <p class="small-note">Please enter your name and class before submitting your reading result.</p>
+      </section>
+
       <div id="resultBox" class="result-box">
         <h2>Reading Result</h2>
         <p id="finalScore"></p>
@@ -537,7 +465,10 @@
   </main>
 
   <script>
+    // IMPORTANT: replace ONLY this URL with your own Cloudflare Worker URL.
+    // Example: const SUBMIT_ENDPOINT = "https://chinese-hl-mock-submit.yourname.workers.dev";
     const SUBMIT_ENDPOINT = "https://chinese-hl-mock-submit.yht2skt6r4.workers.dev/";
+
     function normalize(value) {
       return (value || "")
         .toString()
@@ -653,143 +584,146 @@
       document.getElementById("scoreComment").textContent = comment;
       document.getElementById("resultBox").classList.add("show");
       window.scrollTo({ top: 0, behavior: "smooth" });
+      return rounded;
+    }
+
+    function collectAnswers() {
+      const data = [];
+      document.querySelectorAll(".item").forEach((item, index) => {
+        const questionText = item.querySelector(".prompt")?.innerText || `Item ${index + 1}`;
+        const score = item.dataset.score || "0";
+        const max = item.dataset.points || "0";
+        let answer = "";
+
+        if (item.dataset.type === "tf") {
+          const selected = [];
+          item.querySelectorAll(".tf-row").forEach(row => {
+            const checked = row.querySelector("input[type='radio']:checked");
+            if (checked) selected.push(checked.value);
+          });
+          answer = selected.join(", ");
+        } else {
+          const values = [];
+          item.querySelectorAll("input[type='text'], textarea").forEach(input => {
+            values.push(input.value.trim());
+          });
+          answer = values.filter(Boolean).join(" | ");
+        }
+
+        data.push({
+          question: questionText,
+          answer: answer,
+          score: score,
+          max: max
+        });
+      });
+      return data;
+    }
+
+    function buildReport() {
+      markAll();
+      const name = document.getElementById("studentName")?.value.trim() || "";
+      const className = document.getElementById("studentClass")?.value.trim() || "";
+      const studentId = document.getElementById("studentId")?.value.trim() || "";
+      const totalScore = document.getElementById("liveScore").textContent;
+      const answers = collectAnswers();
+
+      let report = "";
+      report += "Mandarin Chinese Higher Level Reading Mock Test\n";
+      report += "============================================\n";
+      report += `Name: ${name}\n`;
+      report += `Class: ${className}\n`;
+      report += `Student ID / Email: ${studentId}\n`;
+      report += `Reading Score: ${totalScore} / 80\n`;
+      report += `Submitted At: ${new Date().toLocaleString()}\n\n`;
+      report += "Answers and Scores:\n";
+
+      answers.forEach((item, index) => {
+        report += `\n${index + 1}. ${item.question}\n`;
+        report += `Answer: ${item.answer}\n`;
+        report += `Score: ${item.score} / ${item.max}\n`;
+      });
+      return report;
+    }
+
+    async function copyReport() {
+      const name = document.getElementById("studentName")?.value.trim();
+      const className = document.getElementById("studentClass")?.value.trim();
+      if (!name || !className) {
+        alert("Please enter your name and class before copying the report.");
+        return;
+      }
+
+      const report = buildReport();
+      try {
+        await navigator.clipboard.writeText(report);
+        alert("Result report copied. Please paste and send it to your teacher.");
+      } catch (err) {
+        alert("Copy failed. Please manually select the page result and send it to your teacher.");
+        console.error(err);
+      }
+    }
+
+    async function submitResult() {
+      const name = document.getElementById("studentName")?.value.trim();
+      const className = document.getElementById("studentClass")?.value.trim();
+      const studentId = document.getElementById("studentId")?.value.trim();
+
+      if (!name || !className) {
+        alert("Please enter your name and class before submitting.");
+        return;
+      }
+
+      if (!SUBMIT_ENDPOINT || SUBMIT_ENDPOINT.includes("PASTE_YOUR_CLOUDFLARE_WORKER_URL_HERE")) {
+        alert("Teacher setup error: Cloudflare Worker URL has not been added yet.");
+        return;
+      }
+
+      const totalScore = markAll();
+      const answers = collectAnswers();
+      const report = buildReport();
+
+      const payload = {
+        name: name,
+        className: className,
+        studentId: studentId,
+        readingScore: String(totalScore),
+        submittedAt: new Date().toISOString(),
+        report: report,
+        answersJson: JSON.stringify(answers)
+      };
+
+      try {
+        const response = await fetch(SUBMIT_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        let result = null;
+        try {
+          result = await response.json();
+        } catch (jsonError) {
+          result = { ok: false, error: "The server did not return JSON." };
+        }
+
+        if (response.ok && result.ok) {
+          alert("Your result has been submitted successfully.");
+        } else {
+          console.error("Submission failed:", result);
+          alert("Submission failed. Please copy the result report and send it to your teacher. Details: " + (result.error || response.status));
+        }
+      } catch (error) {
+        console.error("Network or CORS error:", error);
+        alert("Submission failed. Please copy the result report and send it to your teacher. Details: " + error.message);
+      }
     }
 
     function showAnswers() {
       markAll();
       document.querySelectorAll(".feedback").forEach(fb => fb.classList.add("show"));
     }
-function collectAnswers() {
-  const data = [];
 
-  document.querySelectorAll(".item").forEach((item, index) => {
-    const questionText = item.querySelector(".prompt")?.innerText || `Item ${index + 1}`;
-    const score = item.dataset.score || "0";
-    const max = item.dataset.points || "0";
-
-    let answer = "";
-
-    if (item.dataset.type === "tf") {
-      const selected = [];
-      item.querySelectorAll(".tf-row").forEach((row) => {
-        const checked = row.querySelector("input[type='radio']:checked");
-        if (checked) selected.push(checked.value);
-      });
-      answer = selected.join(", ");
-    } else {
-      const values = [];
-      item.querySelectorAll("input[type='text'], textarea").forEach((input) => {
-        values.push(input.value.trim());
-      });
-      answer = values.filter(Boolean).join(" | ");
-    }
-
-    data.push({
-      question: questionText,
-      answer: answer,
-      score: score,
-      max: max
-    });
-  });
-
-  return data;
-}
-
-function buildReport() {
-  markAll();
-
-  const name = document.getElementById("studentName")?.value.trim() || "";
-  const className = document.getElementById("studentClass")?.value.trim() || "";
-  const studentId = document.getElementById("studentId")?.value.trim() || "";
-  const totalScore = document.getElementById("liveScore").textContent;
-  const answers = collectAnswers();
-
-  let report = "";
-  report += "Mandarin Chinese Higher Level Reading Mock Test\\n";
-  report += "============================================\\n";
-  report += `Name: ${name}\\n`;
-  report += `Class: ${className}\\n`;
-  report += `Student ID / Email: ${studentId}\\n`;
-  report += `Reading Score: ${totalScore} / 80\\n`;
-  report += `Submitted At: ${new Date().toLocaleString()}\\n\\n`;
-  report += "Answers and Scores:\\n";
-
-  answers.forEach((item, index) => {
-    report += `\\n${index + 1}. ${item.question}\\n`;
-    report += `Answer: ${item.answer}\\n`;
-    report += `Score: ${item.score} / ${item.max}\\n`;
-  });
-
-  return report;
-}
-
-async function copyReport() {
-  const name = document.getElementById("studentName")?.value.trim();
-  const className = document.getElementById("studentClass")?.value.trim();
-
-  if (!name || !className) {
-    alert("Please enter your name and class before copying the report.");
-    return;
-  }
-
-  const report = buildReport();
-
-  try {
-    await navigator.clipboard.writeText(report);
-    alert("Result report copied. Please paste and send it to your teacher.");
-  } catch (err) {
-    alert("Copy failed. Please select and copy the report manually from the result box.");
-    console.error(err);
-  }
-}
-    async function submitResult() {
-  const name = document.getElementById("studentName")?.value.trim();
-  const className = document.getElementById("studentClass")?.value.trim();
-  const studentId = document.getElementById("studentId")?.value.trim();
-
-  if (!name || !className) {
-    alert("Please enter your name and class before submitting.");
-    return;
-  }
-
-  markAll();
-
-  const totalScore = document.getElementById("liveScore").textContent;
-  const answers = collectAnswers();
-  const report = buildReport();
-
-  const payload = {
-    name: name,
-    className: className,
-    studentId: studentId,
-    readingScore: totalScore,
-    submittedAt: new Date().toISOString(),
-    report: report,
-    answersJson: JSON.stringify(answers)
-  };
-
-  try {
-    const response = await fetch(SUBMIT_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(payload)
-    });
-
-    const result = await response.json();
-
-    if (response.ok && result.ok) {
-      alert("Your result has been submitted successfully.");
-    } else {
-      console.error(result);
-      alert("Submission failed. Please copy the result report and send it to your teacher.");
-    }
-  } catch (error) {
-    console.error(error);
-    alert("Submission failed. Please copy the result report and send it to your teacher.");
-  }
-}
     function resetAll() {
       document.querySelectorAll("input[type='text'], textarea").forEach(el => {
         el.value = "";
